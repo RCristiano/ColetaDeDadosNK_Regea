@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/group_Cad"
+        android:checkableBehavior="single"
+        android:visible="false">
+        <item
+            android:id="@+id/nav_user"
+            android:icon="@android:drawable/btn_star"
+            android:title="Usuário" />
+        <item
+            android:id="@+id/nav_prop"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="Propriedade" />
+        <item
+            android:id="@+id/nav_ponto"
+            android:icon="@android:drawable/ic_menu_mylocation"
+            android:title="Ponto" />
+        <item
+            android:id="@+id/nav_save"
+            android:checkable="false"
+            android:icon="@android:drawable/ic_menu_save"
+            android:title="Salvar" />
+    </group>
+
+    <item android:title="Gerenciar cadastros">
+        <menu>
+            <item
+                android:id="@+id/nav_New"
+                android:icon="@android:drawable/ic_input_add"
+                android:title="Novo Cadastro" />
+            <item
+                android:id="@+id/nav_List"
+                android:icon="?android:attr/actionModePasteDrawable"
+                android:title="Listar Cadastros" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Enviar todos" />
+        </menu>
+    </item>
+
+</menu>

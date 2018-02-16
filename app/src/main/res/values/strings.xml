@@ -4,4 +4,11 @@
     <string name="userName">Nome</string>
     <string name="confirmName">Entrar</string>
     <string name="logo">Logo</string>
+    <string name="title_activity_cadastro">Cadastro</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
 </resources>
