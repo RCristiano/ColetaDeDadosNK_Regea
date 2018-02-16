@@ -13,20 +13,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.security.cert.PolicyNode;
 
 public class Cadastro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     NavigationView navigationView;
 
+    UsuarioFragment usuarioFragment = new UsuarioFragment();
+    PropriedadeFragment propriedadeFragment = new PropriedadeFragment();
+    PontoFragment pontoFragment = new PontoFragment();
+    Menu_Inicial menu_inicial = new Menu_Inicial();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        Menu_Inicial fragment = new Menu_Inicial();
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment).commit();
+                .add(R.id.fragment_container, menu_inicial).commit();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -65,13 +72,6 @@ public class Cadastro extends AppCompatActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.cadastro, menu);
 
-        Button btn_new = findViewById(R.id.btn_NewCad);
-        btn_new.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                newCad();
-            }
-        });
-
         Button btnCadName = findViewById(R.id.btn_CadName);
 
         Bundle bundle = getIntent().getExtras();
@@ -106,13 +106,13 @@ public class Cadastro extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_user) {
-            // Handle the camera action
+            cadUser();
         } else if (id == R.id.nav_prop) {
-
-        } else if (id == R.id.nav_prop) {
-
+            cadProp();
+        } else if (id == R.id.nav_ponto) {
+            cadPonto();
         } else if (id == R.id.nav_save) {
-
+            saveCad();
         } else if (id == R.id.nav_New) {
             newCad();
         } else if (id == R.id.nav_List) {
@@ -134,8 +134,35 @@ public class Cadastro extends AppCompatActivity
         Menu menu = navigationView.getMenu();
         menu.setGroupVisible(R.id.group_Cad, true);
 
-        Menu_Inicial fragment = new Menu_Inicial();
+        cadUser();
+    }
+
+    public void cadUser() {
         getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment).commit();
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, usuarioFragment).commit();
+    }
+
+    public void cadProp() {
+        getSupportFragmentManager().beginTransaction()
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, propriedadeFragment).commit();
+    }
+
+    public void cadPonto() {
+        getSupportFragmentManager().beginTransaction()
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, pontoFragment).commit();
+    }
+
+    public void saveCad() {
+        Menu menu = navigationView.getMenu();
+        menu.setGroupVisible(R.id.group_Cad, false);
+
+        getSupportFragmentManager().beginTransaction()
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, menu_inicial).commit();
+
+        Toast.makeText(this, "Cadostro finalizado", Toast.LENGTH_LONG).show();
     }
 }
