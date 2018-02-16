@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Coleta De Dados NK_Regea</string>
+
+    <string name="userName">Nome</string>
+    <string name="confirmName">Entrar</string>
+    <string name="logo">Logo</string>
+</resources>
