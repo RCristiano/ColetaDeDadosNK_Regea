@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Remover
-        Intent intent = new Intent(this, Cadastro.class);
-        intent.putExtra("CadName", "Nome");
-        startActivity(intent);
+        //Intent intent = new Intent(this, Cadastro.class);
+        //intent.putExtra("CadName", "Nome");
+        //startActivity(intent);
     }
 
     public void logCad (View view) {

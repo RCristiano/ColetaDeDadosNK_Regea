@@ -1,7 +1,6 @@
 package br.com.regea.coletadedadosnk_regea;
 
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,9 +13,9 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Menu_Inicial extends Fragment {
+public class PontoFragment extends Fragment {
 
-    public Menu_Inicial() {
+    public PontoFragment() {
         // Required empty public constructor
     }
 
@@ -25,16 +24,17 @@ public class Menu_Inicial extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = (View) inflater.inflate(R.layout.fragment_init_menu, container, false);
+        View view = (View) inflater.inflate(R.layout.fragment_ponto, container, false);
 
-        Button btn_New = (Button) view.findViewById(R.id.btn_NewCad);
-        btn_New.setOnClickListener(new View.OnClickListener() {
+        Button btn_gps = (Button) view.findViewById(R.id.btn_gps);
+        btn_gps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Cadastro)getActivity()).newCad();
+                ((Cadastro)getActivity()).requestLocation(view);
             }
         });
 
         return view;
     }
+
 }
