@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -17,161 +17,169 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/EMP_NM_USUARIO"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nome Usuário"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <EditText
-        android:id="@+id/EMP_NU_CPF"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="CPF"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="46dp" />
-
-    <EditText
-        android:id="@+id/EMP_NU_CNPJ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="CNPJ"
-        android:inputType="number"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="92dp" />
-
-    <EditText
-        android:id="@+id/EMP_DS_EMAILRESPONSAVEL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="e mail"
-        android:inputType="textPersonName|textWebEmailAddress"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="138dp" />
-
-    <EditText
-        android:id="@+id/EMP_DS_LOGRADOURO"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Endereço"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="184dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="232dp">
-
         <EditText
-            android:id="@+id/EMP_NU_LOGRADOURO"
+            android:id="@+id/EMP_NM_USUARIO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:hint="n.°"
-            android:inputType="textPersonName|number" />
-
-        <EditText
-            android:id="@+id/EMP_DS_COMPLEMENTOENDERECO"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Complemento"
+            android:hint="Nome Usuário"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="218dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="278dp">
+            tools:layout_editor_absoluteY="0dp" />
 
         <EditText
-            android:id="@+id/EMP_NU_CAIXAPOSTAL"
+            android:id="@+id/EMP_NU_CPF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:hint="Caixa Postal"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/EMP_NU_CEPENDERECO"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="CEP"
-            android:inputType="textPersonName|number"
+            android:hint="CPF"
+            android:inputType="number"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="310dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="324dp">
-
-        <TextView
-            android:id="@+id/txt_municipio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Município:" />
-
-        <Spinner
-            android:id="@+id/APA_MUNI_CORRESPONDENCIA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="348dp">
+            tools:layout_editor_absoluteY="46dp" />
 
         <EditText
-            android:id="@+id/EMP_NU_DDD"
+            android:id="@+id/EMP_NU_CNPJ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:hint="DDD"
-            android:inputType="number" />
+            android:hint="CNPJ"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="92dp" />
 
         <EditText
-            android:id="@+id/EMP_NU_TELEFONE"
+            android:id="@+id/EMP_DS_EMAILRESPONSAVEL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:hint="Telefone"
-            android:inputType="phone" />
-    </LinearLayout>
+            android:hint="e mail"
+            android:inputType="textPersonName|textWebEmailAddress"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="138dp" />
+
+        <EditText
+            android:id="@+id/EMP_DS_LOGRADOURO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Endereço"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="184dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="232dp">
+
+            <EditText
+                android:id="@+id/EMP_NU_LOGRADOURO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="n.°"
+                android:inputType="textPersonName|number" />
+
+            <EditText
+                android:id="@+id/EMP_DS_COMPLEMENTOENDERECO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Complemento"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="218dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="278dp">
+
+            <EditText
+                android:id="@+id/EMP_NU_CAIXAPOSTAL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Caixa Postal"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/EMP_NU_CEPENDERECO"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="CEP"
+                android:inputType="textPersonName|number"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="310dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="324dp">
+
+            <TextView
+                android:id="@+id/txt_municipio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Município:" />
+
+            <Spinner
+                android:id="@+id/APA_MUNI_CORRESPONDENCIA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="348dp">
+
+            <EditText
+                android:id="@+id/EMP_NU_DDD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="DDD"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/EMP_NU_TELEFONE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Telefone"
+                android:inputType="phone" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_Next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Próximo" />
 
     </LinearLayout>
 
-</FrameLayout>
+
+</ScrollView>

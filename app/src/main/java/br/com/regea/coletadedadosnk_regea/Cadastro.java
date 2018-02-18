@@ -25,11 +25,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Cadastro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final int REQUEST_GPS_PERMISSION = 332;
 
     NavigationView navigationView;
 
@@ -40,7 +43,9 @@ public class Cadastro extends AppCompatActivity
 
     LocationListener locationListener;
     LocationManager locationManager;
-    Location bestLocation;
+    Location bestLocation = null;
+
+    EditText txtUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -175,17 +180,21 @@ public class Cadastro extends AppCompatActivity
         Menu menu = navigationView.getMenu();
         menu.setGroupVisible(R.id.group_Cad, false);
 
-        getSupportFragmentManager().beginTransaction()
+        /*getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
-                .replace(R.id.fragment_container, menu_inicial).commit();
+                .replace(R.id.fragment_container, menu_inicial).commit();*/
 
         Toast.makeText(this, "Cadastro finalizado", Toast.LENGTH_LONG).show();
+
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
-            case 1: {
+            case REQUEST_GPS_PERMISSION: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(this, "Acessando sinal GPS", Toast.LENGTH_LONG).show();
                 } else {
@@ -200,7 +209,7 @@ public class Cadastro extends AppCompatActivity
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_GPS_PERMISSION);
 
                 return;
             }
@@ -249,7 +258,7 @@ public class Cadastro extends AppCompatActivity
                     Toast.makeText(getApplicationContext(), "Ative o GPS", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivityForResult(intent, 1);
+                    startActivityForResult(intent, REQUEST_GPS_PERMISSION);
                 }
 
                 @Override
@@ -266,16 +275,15 @@ public class Cadastro extends AppCompatActivity
     }
 
     public void setLocation(Location location, ProgressDialog progressDialog) {
-        if ( location != null ) {
-            if ( bestLocation != null ) {
-                if ( bestLocation.getAccuracy() > location.getAccuracy() )
-                    return;
-            }
-
-            bestLocation = location;
-
-            progressDialog.setMessage("Precisão: " + location.getAccuracy());
-            progressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
+        if ( location == null
+                || bestLocation == null
+                || bestLocation.getAccuracy() > location.getAccuracy() ) {
+            return;
         }
+
+        bestLocation = location;
+
+        progressDialog.setMessage( "Precisão: " + location.getAccuracy() );
+        progressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
     }
 }
