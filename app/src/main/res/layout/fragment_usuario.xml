@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="CPF"
-        android:inputType="textPersonName"
+        android:inputType="number"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="46dp" />
 
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="CNPJ"
-        android:inputType="textPersonName"
+        android:inputType="number"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="92dp" />
 

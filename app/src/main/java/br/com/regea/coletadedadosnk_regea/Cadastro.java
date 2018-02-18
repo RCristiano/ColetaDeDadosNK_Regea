@@ -209,19 +209,25 @@ public class Cadastro extends AppCompatActivity
             progress.setTitle("Ajustando posição GPS");
             progress.setMessage("Aguarde!");
             progress.setCancelable(false);
-            progress.setButton(DialogInterface.BUTTON_POSITIVE, "Registrar posição", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
+            progress.setButton(DialogInterface.BUTTON_NEGATIVE, "Cancelar",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            locationManager.removeUpdates(locationListener);
+                        }
+                    });
+            progress.setButton(DialogInterface.BUTTON_POSITIVE, "Registrar posição",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            TextView txt_longitude = findViewById(R.id.INT_CR_LONGITUDE);
+                            TextView txt_latitude = findViewById(R.id.INT_CR_LATITUDE);
+                            txt_latitude.setText( String.format("%s", bestLocation.getLatitude()) );
+                            txt_longitude.setText( String.format("%s", bestLocation.getLongitude()) );
 
-                    TextView txt_latitude = findViewById(R.id.INT_CR_LATITUDE);
-                    TextView txt_longitude = findViewById(R.id.INT_CR_LONGITUDE);
-                    txt_latitude.setText( String.format("%s", bestLocation.getLatitude()) );
-                    txt_longitude.setText( String.format("%s", bestLocation.getLongitude()) );
-
-                    locationManager.removeUpdates(locationListener);
-                }
-            });
+                            locationManager.removeUpdates(locationListener);
+                        }
+                    });
             progress.show();
             progress.getButton(ProgressDialog.BUTTON_POSITIVE).setVisibility(View.INVISIBLE);
 
@@ -252,7 +258,7 @@ public class Cadastro extends AppCompatActivity
                 }
             };
 
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 500, 0, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
         }catch(SecurityException ex){
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
