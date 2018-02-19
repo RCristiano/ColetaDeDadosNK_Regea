@@ -42,8 +42,8 @@ public class UsuarioFragment extends Fragment {
         EditText txtUsuario = (EditText) getActivity().findViewById(R.id.EMP_NM_USUARIO);
 
         DbController dbController = new DbController(getActivity());
-        String teste = dbController.insertUser(txtUsuario.getText().toString());
+        String insert = dbController.insertUser(txtUsuario.getText().toString());
 
-        Toast.makeText(getActivity(), teste, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), insert, Toast.LENGTH_LONG).show();
     }
 }

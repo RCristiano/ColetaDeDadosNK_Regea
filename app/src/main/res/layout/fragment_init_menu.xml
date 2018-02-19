@@ -12,7 +12,7 @@
 
         <Button
             android:id="@+id/btn_NewCad"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Novo Cadastro"
             app:layout_constraintBottom_toTopOf="@+id/btn_ListCad"
@@ -22,9 +22,8 @@
 
         <Button
             android:id="@+id/btn_ListCad"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
             android:text="Listar Cadastros"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +32,7 @@
 
         <Button
             android:id="@+id/btn_SendCads"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Enviar todos"
             app:layout_constraintBottom_toBottomOf="parent"

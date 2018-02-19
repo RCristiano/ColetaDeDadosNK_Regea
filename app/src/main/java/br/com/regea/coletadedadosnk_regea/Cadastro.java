@@ -25,7 +25,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,27 +32,25 @@ public class Cadastro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int REQUEST_GPS_PERMISSION = 332;
-
-    NavigationView navigationView;
-
-    UsuarioFragment usuarioFragment = new UsuarioFragment();
-    PropriedadeFragment propriedadeFragment = new PropriedadeFragment();
-    PontoFragment pontoFragment = new PontoFragment();
-    Menu_Inicial menu_inicial = new Menu_Inicial();
-
-    LocationListener locationListener;
-    LocationManager locationManager;
-    Location bestLocation = null;
-
-    EditText txtUsuario;
+    private final UsuarioFragment usuarioFragment = new UsuarioFragment();
+    private final PropriedadeFragment propriedadeFragment = new PropriedadeFragment();
+    private final PontoFragment pontoFragment = new PontoFragment();
+    private final Menu_Inicial menu_inicial = new Menu_Inicial();
+    private final Listar_CadastrosFragment listarCadastrosFragment = new Listar_CadastrosFragment();
+    private NavigationView navigationView;
+    private LocationListener locationListener;
+    private LocationManager locationManager;
+    private Location bestLocation = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, menu_inicial).commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, menu_inicial).commit();
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -136,9 +133,9 @@ public class Cadastro extends AppCompatActivity
         } else if (id == R.id.nav_New) {
             newCad();
         } else if (id == R.id.nav_List) {
-
+            listCad();
         } else if (id == R.id.nav_send) {
-
+            sendAllCads();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -159,18 +156,21 @@ public class Cadastro extends AppCompatActivity
     }
 
     public void cadUser() {
+        usuarioFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
                 .replace(R.id.fragment_container, usuarioFragment).commit();
     }
 
     public void cadProp() {
+        propriedadeFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
                 .replace(R.id.fragment_container, propriedadeFragment).commit();
     }
 
     public void cadPonto() {
+        pontoFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
                 .replace(R.id.fragment_container, pontoFragment).commit();
@@ -189,6 +189,16 @@ public class Cadastro extends AppCompatActivity
         Intent intent = getIntent();
         finish();
         startActivity(intent);
+    }
+
+    public void listCad() {
+        listarCadastrosFragment.setArguments(getIntent().getExtras());
+        getSupportFragmentManager().beginTransaction()
+                .addToBackStack(null)
+                .replace(R.id.fragment_container, listarCadastrosFragment).commit();
+    }
+
+    public void sendAllCads() {
     }
 
     @Override
@@ -275,9 +285,7 @@ public class Cadastro extends AppCompatActivity
     }
 
     public void setLocation(Location location, ProgressDialog progressDialog) {
-        if ( location == null
-                || bestLocation == null
-                || bestLocation.getAccuracy() > location.getAccuracy() ) {
+        if (location == null || (bestLocation != null && bestLocation.getAccuracy() > location.getAccuracy())) {
             return;
         }
 

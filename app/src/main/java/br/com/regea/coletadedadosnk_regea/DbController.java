@@ -2,6 +2,7 @@ package br.com.regea.coletadedadosnk_regea;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -32,6 +33,19 @@ public class DbController {
         else
             return "Registro Inserido com sucesso";
 
+    }
+
+    public Cursor getUsuarios() {
+        Cursor cursor;
+        String[] campos = {DbContract.DbEntry._ID, DbContract.DbEntry.USUARIO_NAME};
+        sqLiteDatabase = dbOpenHelper.getReadableDatabase();
+        cursor = sqLiteDatabase.query(DbContract.DbEntry.TB_USUARIO, campos, null, null, null, null, null, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+        sqLiteDatabase.close();
+        return cursor;
     }
 
 }

@@ -33,6 +33,22 @@ public class Menu_Inicial extends Fragment {
             }
         });
 
+        Button btn_List = (Button) view.findViewById(R.id.btn_ListCad);
+        btn_List.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((Cadastro) getActivity()).listCad();
+            }
+        });
+
+        Button btn_Send = (Button) view.findViewById(R.id.btn_SendCads);
+        btn_Send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((Cadastro) getActivity()).sendAllCads();
+            }
+        });
+
         return view;
     }
 }
