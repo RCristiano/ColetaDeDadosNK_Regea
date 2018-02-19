@@ -1,6 +1,7 @@
 package br.com.regea.coletadedadosnk_regea;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -224,7 +225,9 @@ public class Cadastro extends AppCompatActivity
                 return;
             }
 
-            final ProgressDialog progress = new ProgressDialog(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            final AlertDialog progress = builder.create();
             progress.setTitle("Ajustando posição GPS");
             progress.setMessage("Aguarde!");
             progress.setCancelable(false);
@@ -284,14 +287,18 @@ public class Cadastro extends AppCompatActivity
         }
     }
 
-    public void setLocation(Location location, ProgressDialog progressDialog) {
-        if (location == null || (bestLocation != null && bestLocation.getAccuracy() > location.getAccuracy())) {
-            return;
+    public void setLocation(Location location, AlertDialog alertDialog) {
+        if (location != null) {
+            if (bestLocation == null) {
+                bestLocation = location;
+            }
+
+            if (bestLocation.getAccuracy() > location.getAccuracy()) {
+                bestLocation = location;
+            }
+
+            alertDialog.setMessage("Precisão: " + (int) bestLocation.getAccuracy() + " metros");
+            alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
         }
-
-        bestLocation = location;
-
-        progressDialog.setMessage( "Precisão: " + location.getAccuracy() );
-        progressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
     }
 }
