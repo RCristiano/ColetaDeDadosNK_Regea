@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -207,7 +208,7 @@ public class Cadastro extends AppCompatActivity
         switch (requestCode) {
             case REQUEST_GPS_PERMISSION: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "Acessando sinal GPS", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Acesso permitido ao GPS", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "Necessário acesso ao GPS", Toast.LENGTH_LONG).show();
                 }
@@ -255,6 +256,13 @@ public class Cadastro extends AppCompatActivity
 
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+            if ( !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ) {
+                Toast.makeText(getApplicationContext(), "Ative o GPS", Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivityForResult(intent, REQUEST_GPS_PERMISSION);
+            }
+
             locationListener = new LocationListener() {
                 @Override
                 public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
@@ -280,7 +288,10 @@ public class Cadastro extends AppCompatActivity
                 }
             };
 
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            Criteria criteria = new Criteria();
+            criteria.setAccuracy(Criteria.NO_REQUIREMENT);
+
+            locationManager.requestLocationUpdates(1000, 0, criteria, locationListener, null);
 
         }catch(SecurityException ex){
             Toast.makeText(this, ex.getMessage(), Toast.LENGTH_LONG).show();
