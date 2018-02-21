@@ -81,6 +81,12 @@ public class Cadastro extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        }
+
+        int backStackEntryCount = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (backStackEntryCount < 1) {
+            moveTaskToBack(true);
         } else {
             super.onBackPressed();
         }
@@ -154,7 +160,8 @@ public class Cadastro extends AppCompatActivity
         Menu menu = navigationView.getMenu();
         menu.setGroupVisible(R.id.group_Cad, true);
 
-        cadUser();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, usuarioFragment).commit();
     }
 
     public void cadUser() {
@@ -181,10 +188,6 @@ public class Cadastro extends AppCompatActivity
     public void saveCad() {
         Menu menu = navigationView.getMenu();
         menu.setGroupVisible(R.id.group_Cad, false);
-
-        /*getSupportFragmentManager().beginTransaction()
-                .addToBackStack(null)
-                .replace(R.id.fragment_container, menu_inicial).commit();*/
 
         Toast.makeText(this, "Cadastro finalizado", Toast.LENGTH_LONG).show();
 
@@ -289,7 +292,7 @@ public class Cadastro extends AppCompatActivity
             };
 
             Criteria criteria = new Criteria();
-            criteria.setAccuracy(Criteria.NO_REQUIREMENT);
+            criteria.setAccuracy(Criteria.ACCURACY_FINE);
 
             locationManager.requestLocationUpdates(1000, 0, criteria, locationListener, null);
 
@@ -308,8 +311,9 @@ public class Cadastro extends AppCompatActivity
                 bestLocation = location;
             }
 
-            alertDialog.setMessage("Precisão: " + (int) bestLocation.getAccuracy() + " metros");
+            alertDialog.setMessage(String.format("Precisão: %s metros", bestLocation.getAccuracy()));
             alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
         }
     }
+
 }
