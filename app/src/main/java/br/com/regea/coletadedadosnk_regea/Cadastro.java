@@ -26,9 +26,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Cadastro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -191,6 +194,7 @@ public class Cadastro extends AppCompatActivity
 
         Toast.makeText(this, "Cadastro finalizado", Toast.LENGTH_LONG).show();
 
+        // recreate() não limpou stack e manteve savedBundle em onCreate()
         Intent intent = getIntent();
         finish();
         startActivity(intent);
@@ -314,6 +318,30 @@ public class Cadastro extends AppCompatActivity
             alertDialog.setMessage(String.format("Precisão: %s metros", bestLocation.getAccuracy()));
             alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
         }
+    }
+
+    public ArrayList<View> getAllChildren(View v) {
+
+        if (!(v instanceof ViewGroup)) {
+            ArrayList<View> viewArrayList = new ArrayList<View>();
+            viewArrayList.add(v);
+            return viewArrayList;
+        }
+
+        ArrayList<View> result = new ArrayList<View>();
+
+        ViewGroup vg = (ViewGroup) v;
+        for (int i = 0; i < vg.getChildCount(); i++) {
+
+            View child = vg.getChildAt(i);
+
+            ArrayList<View> viewArrayList = new ArrayList<View>();
+            viewArrayList.add(v);
+            viewArrayList.addAll(getAllChildren(child));
+
+            result.addAll(viewArrayList);
+        }
+        return result;
     }
 
 }

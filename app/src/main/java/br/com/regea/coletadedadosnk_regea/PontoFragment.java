@@ -33,7 +33,7 @@ public class PontoFragment extends Fragment {
 
     private static final int REQUEST_TAKE_PHOTO = 262;
     String mCurrentPhotoPath;
-    int VIEW_TARGET_ID;
+    Integer VIEW_TARGET_ID;
     private Uri imageUri;
 
     public PontoFragment() {
@@ -54,7 +54,7 @@ public class PontoFragment extends Fragment {
         btn_gps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Cadastro)getActivity()).requestLocation(view);
+                ((Cadastro) getActivity()).requestLocation(view);
             }
         });
 

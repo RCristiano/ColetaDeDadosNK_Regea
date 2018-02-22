@@ -29,7 +29,7 @@ public class Menu_Inicial extends Fragment {
         btn_New.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Cadastro)getActivity()).newCad();
+                ((Cadastro) getActivity()).newCad();
             }
         });
 

@@ -4,12 +4,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 /**
  * Created by Rodrigo on 18/02/2018.
  */
 
-public class DbController {
+public class DbController implements DbContract {
 
     private SQLiteDatabase sqLiteDatabase;
     private DbOpenHelper dbOpenHelper;
@@ -23,9 +24,9 @@ public class DbController {
         long resultado;
 
         sqLiteDatabase = dbOpenHelper.getWritableDatabase();
-        valores.put(DbContract.DbEntry.USUARIO_NAME, name);
+        valores.put(DbEntry.USUARIO_NAME, name);
 
-        resultado = sqLiteDatabase.insert(DbContract.DbEntry.TB_USUARIO, null, valores);
+        resultado = sqLiteDatabase.insert(DbEntry.TB_USUARIO, null, valores);
         sqLiteDatabase.close();
 
         if (resultado ==-1)
@@ -37,15 +38,39 @@ public class DbController {
 
     public Cursor getUsuarios() {
         Cursor cursor;
-        String[] campos = {DbContract.DbEntry._ID, DbContract.DbEntry.USUARIO_NAME};
-        sqLiteDatabase = dbOpenHelper.getReadableDatabase();
-        cursor = sqLiteDatabase.query(DbContract.DbEntry.TB_USUARIO, campos, null, null, null, null, null, null);
+        String[] campos = {DbEntry._ID, DbEntry.USUARIO_NAME};
+        try {
+            sqLiteDatabase = dbOpenHelper.getReadableDatabase();
+            cursor = sqLiteDatabase.query(DbEntry.TB_USUARIO, campos, null, null, null, null, null, null);
 
-        if (cursor != null) {
-            cursor.moveToFirst();
+            if (cursor != null) {
+                cursor.moveToFirst();
+            }
+            sqLiteDatabase.close();
+            return cursor;
+        } catch (Exception e) {
+            Log.e("TAG", "=>", e);
         }
+        return null;
+    }
+
+    public void createDimTable(final String TB_NAME, String[] campos) {
+        sqLiteDatabase = dbOpenHelper.getWritableDatabase();
+
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS " + TB_NAME + " (" +
+                DbEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT";
+
+        StringBuilder sql = new StringBuilder(sqlCreate);
+
+        for (String campo : campos) {
+            sql.append(", ").append(campo);
+        }
+
+        sql.append(");");
+
+        sqLiteDatabase.execSQL(sql.toString());
+
         sqLiteDatabase.close();
-        return cursor;
     }
 
 }

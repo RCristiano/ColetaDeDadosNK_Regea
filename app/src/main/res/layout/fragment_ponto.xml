@@ -40,17 +40,16 @@
                 android:id="@+id/img_FotoGeral"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
-                android:cropToPadding="false"
                 app:srcCompat="@android:drawable/ic_menu_gallery" />
 
             <ImageView
                 android:id="@+id/img_FotoDetalhe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:adjustViewBounds="true"
                 app:srcCompat="@android:drawable/ic_menu_gallery" />

@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 /**
@@ -27,23 +28,36 @@ public class UsuarioFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = (View) inflater.inflate(R.layout.fragment_usuario, container, false);
 
+        final ArrayList<View> viewArrayList = ((Cadastro) getActivity()).getAllChildren(view);
+        ArrayList<String> ar = new ArrayList<String>();
+
+        for (View v : viewArrayList) {
+            if (v instanceof EditText) {
+                ar.add(getResources().getResourceEntryName(v.getId()) + " TEXT");
+            }
+        }
+
+        String[] campos = ar.toArray(new String[0]);
+
+        DbController dbController = new DbController(getActivity());
+        dbController.createDimTable("TB_USUARIO", campos);
+
         Button btn_Next = (Button) view.findViewById(R.id.btn_Next);
         btn_Next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveData(view);
+                saveData();
             }
         });
 
         return view;
     }
 
-    public void saveData(View view) {
-        EditText txtUsuario = (EditText) getActivity().findViewById(R.id.EMP_NM_USUARIO);
+    public void saveData() {
+        //EditText txtUsuario = (EditText) getActivity().findViewById(R.id.EMP_NM_USUARIO);
 
-        DbController dbController = new DbController(getActivity());
-        String insert = dbController.insertUser(txtUsuario.getText().toString());
+        //String insert = dbController.insertUser(txtUsuario.getText().toString());
 
-        Toast.makeText(getActivity(), insert, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(), insert, Toast.LENGTH_LONG).show();
     }
 }
