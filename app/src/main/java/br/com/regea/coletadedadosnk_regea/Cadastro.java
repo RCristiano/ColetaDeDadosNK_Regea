@@ -2,7 +2,6 @@ package br.com.regea.coletadedadosnk_regea;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,12 +23,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -329,7 +330,7 @@ public class Cadastro extends AppCompatActivity
 
     public ArrayList<View> getAllChildren(View v) {
 
-        if (!(v instanceof ViewGroup)) {
+        if (v instanceof Spinner || !(v instanceof ViewGroup)) {
             ArrayList<View> viewArrayList = new ArrayList<View>();
             viewArrayList.add(v);
             return viewArrayList;
@@ -355,11 +356,14 @@ public class Cadastro extends AppCompatActivity
         try {
             final ArrayList<View> viewArrayList = getAllChildren(view);
             final ArrayList<String> ar = new ArrayList<String>();
+
             for (View v : viewArrayList) {
-                if (v instanceof EditText) {
+                if (v instanceof Spinner || v instanceof EditText) {
                     ar.add(getResources().getResourceEntryName(v.getId()) + " TEXT");
+                    Log.e("TAG", "getAllChildren: " + getResources().getResourceEntryName(v.getId()));
                 }
             }
+
             String[] campos = ar.toArray(new String[0]);
 
             DbController dbController = new DbController(this);
@@ -367,6 +371,7 @@ public class Cadastro extends AppCompatActivity
 
             return true;
         } catch (Exception e) {
+            Log.e("createTableFromView", "=> " + e.getMessage());
             return false;
         }
     }

@@ -79,6 +79,8 @@ public class DbController implements DbContract {
         sqLiteDatabase.close();
     }
 
+    // TODO Implementar função para exportar DB
+
     /*private void exportDB(Context context) {
 
         File dbFile = context.getDatabasePath("MyDBName.db");
