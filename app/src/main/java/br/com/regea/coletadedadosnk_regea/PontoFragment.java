@@ -32,8 +32,10 @@ import java.util.Date;
 public class PontoFragment extends Fragment {
 
     private static final int REQUEST_TAKE_PHOTO = 262;
-    String mCurrentPhotoPath;
-    Integer VIEW_TARGET_ID;
+    private static final String TAB_NAME = "TAB_PONTO";
+    private static boolean hasTable = false;
+    protected String mCurrentPhotoPath;
+    private Integer VIEW_TARGET_ID;
     private Uri imageUri;
 
     public PontoFragment() {
@@ -44,11 +46,13 @@ public class PontoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-
         // Inflate the layout for this fragment
         View view = (View) inflater.inflate(R.layout.fragment_ponto, container, false);
+
+        getActivity().setTitle(R.string.title_ponto);
+
+        if (!hasTable)
+            hasTable = ((Cadastro) getActivity()).createTableFromView(TAB_NAME, view);
 
         Button btn_gps = (Button) view.findViewById(R.id.btn_gps);
         btn_gps.setOnClickListener(new View.OnClickListener() {

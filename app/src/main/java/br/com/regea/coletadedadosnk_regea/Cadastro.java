@@ -2,6 +2,7 @@ package br.com.regea.coletadedadosnk_regea;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -28,6 +29,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -168,6 +170,11 @@ public class Cadastro extends AppCompatActivity
     }
 
     public void cadUser() {
+        // TODO Remover stub
+        Bundle args = new Bundle();
+        args.putInt("someInt", 10);
+        getIntent().putExtras(args);
+
         usuarioFragment.setArguments(getIntent().getExtras());
         getSupportFragmentManager().beginTransaction()
                 .addToBackStack(null)
@@ -342,6 +349,26 @@ public class Cadastro extends AppCompatActivity
             result.addAll(viewArrayList);
         }
         return result;
+    }
+
+    public boolean createTableFromView(String TAB_NAME, View view) {
+        try {
+            final ArrayList<View> viewArrayList = getAllChildren(view);
+            final ArrayList<String> ar = new ArrayList<String>();
+            for (View v : viewArrayList) {
+                if (v instanceof EditText) {
+                    ar.add(getResources().getResourceEntryName(v.getId()) + " TEXT");
+                }
+            }
+            String[] campos = ar.toArray(new String[0]);
+
+            DbController dbController = new DbController(this);
+            dbController.createDimTable(TAB_NAME, campos);
+
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

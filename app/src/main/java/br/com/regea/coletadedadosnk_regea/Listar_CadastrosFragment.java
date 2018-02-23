@@ -29,6 +29,8 @@ public class Listar_CadastrosFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_listar_cadastros, container, false);
 
+        getActivity().setTitle(R.string.title_activity_cadastro);
+
         DbController crud = new DbController(getContext());
         Cursor cursor = crud.getUsuarios();
 

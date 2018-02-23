@@ -4,11 +4,390 @@
     <string name="userName">Nome</string>
     <string name="confirmName">Entrar</string>
     <string name="logo">Logo</string>
-    <string name="title_activity_cadastro">Cadastro</string>
+    <string name="title_activity_cadastro">Menu</string>
+    <string name="title_usuario">Usuário</string>
+    <string name="title_propriedade">Propriedade</string>
+    <string name="title_ponto">Ponto</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="anexo1">
+        <item>Captação</item>
+        <item>Lançamento</item>
+        <item>Barragem</item>
+        <item>Ponto de Referência</item>
+    </string-array>
+
+    <string-array name="anexo2">
+        <item>Superficial</item>
+        <item>Subterrânea</item>
+    </string-array>
+
+    <string-array name="anexo3">
+        <item>Projeto</item>
+        <item>Construção</item>
+        <item>Operação</item>
+        <item>Desativada</item>
+    </string-array>
+
+    <string-array name="anexo4">
+        <item>Direito de Uso</item>
+        <item>Preventiva</item>
+        <item>DRDH</item>
+        <item>CERTOH</item>
+        <item>Licença ou autorização para perfuração de poços</item>
+        <item>Anuência prévia</item>
+        <item>Cadastro</item>
+        <item>Outra</item>
+    </string-array>
+
+    <string-array name="anexo5">
+        <item>Outorgado</item>
+        <item>Não Outorgável</item>
+        <item>Em Análise</item>
+        <item>Uso Insignificante</item>
+        <item>Indeferido</item>
+        <item>Inválido</item>
+        <item>Autorizado (água subterrânea)</item>
+        <item>Outra</item>
+    </string-array>
+
+    <string-array name="anexo6">
+        <item>Sem Finalidade</item>
+        <item>Abastecimento Público</item>
+        <item>Esgotamento Sanitário</item>
+        <item>Indústria</item>
+        <item>Mineração – Extração de Areia/Cascalho em Leito de Rio</item>
+        <item>Irrigação</item>
+        <item>Criação Animal</item>
+        <item>Aquicultura em Tanque Escavado</item>
+        <item>Termoelétrica</item>
+        <item>Transposição</item>
+        <item>Aproveitamento Hidroelétrico</item>
+        <item>Reservatório/Barramento/Regularização de Vazões para Usos Múltiplos</item>
+        <item>Consumo Humano</item>
+        <item>Mineração – Outros Processos Extrativos</item>
+        <item>Obras Hidráulicas</item>
+        <item>Serviços</item>
+        <item>Aquicultura em Tanque Rede</item>
+        <item>Outras</item>
+    </string-array>
+
+    <string-array name="anexo7">
+        <item>Eclusa</item>
+        <item>Recreação</item>
+        <item>Salvamento</item>
+        <item>Poço de bombeamento de recuperação ambiental</item>
+        <item>Poço de monitoramento/Piezometro</item>
+        <item>Poço de injeção para recuperação ambiental</item>
+        <item>Umectação de vias</item>
+        <item>Sistema de Resfriamento</item>
+        <item>Lavagem de veículos</item>
+        <item>Clarificação da água</item>
+        <item>Depuração de efluentes</item>
+        <item>Disposição de rejeitos</item>
+        <item>Pesquisa mineral</item>
+        <item>Pesquisa hidrogeológica / teste de bombeamento</item>
+        <item>Recirculação de água</item>
+        <item>Urbanização</item>
+        <item>Rebaixamento de aquífero</item>
+        <item>Balneário - lazer e clube</item>
+        <item>Lavanderia</item>
+        <item>Combate a incêndio</item>
+        <item>Hortas, pomares, jardins, paisagismo (área &lt; 1 ha)</item>
+        <item>Teste hidrostático</item>
+        <item>Abastecimento de pulverizadores</item>
+        <item>Outro</item>
+        <item>Construção Civil</item>
+    </string-array>
+
+    <string-array name="anexo8">
+        <item>Sulcos abertos em desnível</item>
+        <item>Inundação permanente (diques em nível)</item>
+        <item>Aspersão por sistema convencional</item>
+        <item>Aspersão por sistema autopropelido</item>
+        <item>Aspersão por sistema pivô central</item>
+        <item>Gotejamento</item>
+        <item>Micro-aspersão</item>
+        <item>Tubos perfurados (tripa)</item>
+        <item>Sulcos interligados em bacias</item>
+        <item>Sub-irrigação</item>
+        <item>Aspersão por sistema pivô central com LEPA</item>
+        <item>Aspersão por canhão hidráulico</item>
+        <item>Aspersão por sistema deslocamento linear</item>
+        <item>Aspersão por sistema em malha</item>
+        <item>Aspersão por sistema pivô central rebocável</item>
+        <item>Caminhão regadeira</item>
+        <item>Gotejamento subterrâneo - tubo poroso</item>
+        <item>Sulcos fechados</item>
+        <item>Inundação temporária (diques em desnível)</item>
+    </string-array>
+
+    <string-array name="anexo9">
+        <item>Brócolis</item>
+        <item>Couve de bruxelas</item>
+        <item>Repolho</item>
+        <item>Cenoura</item>
+        <item>Couve flor</item>
+        <item>Aipo</item>
+        <item>Alho</item>
+        <item>Alface</item>
+        <item>Cebolas (secas)</item>
+        <item>Cebolas (verdes)</item>
+        <item>Cebolas (sementes)</item>
+        <item>Espinafre</item>
+        <item>Rabanete</item>
+        <item>Beringela</item>
+        <item>Pimentão</item>
+        <item>Tomate</item>
+        <item>Melão cantaloupe</item>
+        <item>Pepino (colheita fresca)</item>
+        <item>Pepino (colheita mecânica)</item>
+        <item>Abóbora</item>
+        <item>Abobrinha</item>
+        <item>Melões</item>
+        <item>Melancias</item>
+        <item>Beterrabas</item>
+        <item>Mandiocas  (ano 1)</item>
+        <item>Mandiocas  (ano 2)</item>
+        <item>Pastinaca (chirívia)</item>
+        <item>Batata</item>
+        <item>Batata doce</item>
+        <item>Nabo (e nabo-redondo)</item>
+        <item>Beterraba açucareira</item>
+        <item>Feijão verde</item>
+        <item>Feijões (grãos)</item>
+        <item>Grão de bico</item>
+        <item>Fava (colheita fresca)</item>
+        <item>Fava (grão, semente)</item>
+        <item>Feijão caupi (e feijão mungo)</item>
+        <item>Amendoim</item>
+        <item>Lentilha</item>
+        <item>Ervilha (fresca)</item>
+        <item>Ervilha (seca, semente)</item>
+        <item>Soja</item>
+        <item>Alcachofras</item>
+        <item>Aspargos</item>
+        <item>Hortelã</item>
+        <item>Morangos</item>
+        <item>Algodão</item>
+        <item>Linho</item>
+        <item>Sisal</item>
+        <item>Mamona</item>
+        <item>Colza, Canola</item>
+        <item>Cártamo</item>
+        <item>Gegelim</item>
+        <item>Girassol</item>
+        <item>Cevada</item>
+        <item>Aveia</item>
+        <item>Trigo primavera</item>
+        <item>Trigo inverno</item>
+        <item>Milho (grão e pipoca)</item>
+        <item>Milho (doce)</item>
+        <item>Milheto</item>
+        <item>Sorgo (grão)</item>
+        <item>Sorgo (doce)</item>
+        <item>Arroz</item>
+        <item>Alfafa (feno, vários cortes, feitos médios)</item>
+        <item>Alfafa (feno, ciclo individual de corte)</item>
+        <item>Alfafa (para semente)</item>
+        <item>Capim Bermuda (feno, vários cortes, efeitos médios)</item>
+        <item>Capim Bermuda (colheita de primavera para semente)</item>
+        <item>Trevo (feno, vários cortes, efeitos médios)</item>
+        <item>Trevo (feno, ciclo individual de corte)</item>
+        <item>Capim centeio (feno, vários cortes, efeitos médios)</item>
+        <item>Capim Sudão anual (feno, vários cortes, efeitos médios)</item>
+        <item>Capim Sudão anual (feno, ciclo individual de corte)</item>
+        <item>Pastagem (pastoreio rotativo)</item>
+        <item>Pastagem (pastoreio extensivo)</item>
+        <item>Gramados (estação fria)</item>
+        <item>Gramados (estação quente)</item>
+        <item>Banana (1º ano)</item>
+        <item>Banana (2º ano)</item>
+        <item>Cacau</item>
+        <item>Café (pouca cobertura de chão)</item>
+        <item>Café (com ervas)</item>
+        <item>Tamareira (Tâmaras)</item>
+        <item>Palmeira</item>
+        <item>Abacaxi (solo limpo)</item>
+        <item>Abacaxi (com cobertura de gramíneas)</item>
+        <item>Seringueira</item>
+        <item>Chá (sem sombreamento)</item>
+        <item>Chá (com árvores de sombreamento)</item>
+        <item>Amora, mirtilo (arbustos)</item>
+        <item>Uvas (mesa ou passas)</item>
+        <item>Uvas (vinho)</item>
+        <item>Lúpulo</item>
+        <item>Amêndoas (sem cobertura de chão)</item>
+        <item>Maças, cerejas e peras (sem cobertura de chão, com geadas)</item>
+        <item>Maças, cerejas e peras (sem cobertura de chão, sem geadas)</item>
+        <item>Maças, cerejas e peras (cobertura de chão ativa, com geadas)</item>
+        <item>Maças, cerejas e peras (cobertura de chão ativa, sem geadas)</item>
+        <item>Damascos, pêssegos (sem cobertura de chão, com geadas)</item>
+        <item>Damascos, pêssegos (sem cobertura de chão, sem geadas)</item>
+        <item>Damascos, pêssegos (cobertura de chão ativa, com geadas)</item>
+        <item>Damascos, pêssegos (cobertura de chão ativa, sem geadas)</item>
+        <item>Abacate, sem cobertura de chão</item>
+        <item>Citrus, sem cobertura de chão (70% de dossel)</item>
+        <item>Citrus, sem cobertura de chão (50% de dossel)</item>
+        <item>Citrus, sem cobertura de chão (20% de dossel)</item>
+        <item>Citrus, cobertura de chão ativa ou invasoras (70% de dossel)</item>
+        <item>Citrus, cobertura de chão ativa ou invasoras (50% de dossel)</item>
+        <item>Citrus, cobertura de chão ativa ou invasoras (20% de dossel)</item>
+        <item>Kiwi</item>
+        <item>Oliveira (40 a 60% de cobertura do solo pelo dossel)</item>
+        <item>Pistache, sem cobertura do solo</item>
+        <item>Nogueira (pomares)</item>
+        <item>Coníferas</item>
+        <item>Banhados com taboas, juncos,  com geadas</item>
+        <item>Banhados com taboas, juncos,  sem geadas</item>
+        <item>Banhados, vegetação baixa, sem geadas</item>
+        <item>Pântano, banhados,  água estagnada</item>
+        <item>Pântano, banhado, solo úmido</item>
+        <item>Cana-de-açúcar</item>
+        <item>Trigo</item>
+        <item>Abiu</item>
+        <item>Açaí</item>
+        <item>Acerola</item>
+        <item>Ameixa</item>
+        <item>Araça</item>
+        <item>Atemoia</item>
+        <item>Buriti</item>
+        <item>Buritiba</item>
+        <item>Caju</item>
+        <item>Caqui</item>
+        <item>Carambola</item>
+        <item>Caja</item>
+        <item>Cajamanga</item>
+        <item>Coco Verde</item>
+        <item>Cupuaçu</item>
+        <item>Figo</item>
+        <item>Goiaba</item>
+        <item>Graviola</item>
+        <item>Jaboticaba</item>
+        <item>Jaca</item>
+        <item>Jambo</item>
+        <item>Jenipapo</item>
+        <item>Juçara</item>
+        <item>Lichia</item>
+        <item>Mangaba</item>
+        <item>Mangostao</item>
+        <item>Mamao</item>
+        <item>Manga</item>
+        <item>Maracuja</item>
+        <item>Murici</item>
+        <item>Nectarina</item>
+        <item>Noz Macadamia</item>
+        <item>Pequi</item>
+        <item>Pessego</item>
+        <item>Pinha</item>
+        <item>Pitanga</item>
+        <item>Pupunha</item>
+        <item>Rambutan</item>
+        <item>Roma</item>
+        <item>Sapoti</item>
+        <item>Seriguela</item>
+        <item>Tamarindo</item>
+        <item>Tangerina</item>
+        <item>Umbu</item>
+        <item>Aipim</item>
+        <item>Batatinha</item>
+        <item>Canela</item>
+        <item>Chuchu</item>
+        <item>Coentro</item>
+        <item>Cominho</item>
+        <item>Inhame</item>
+        <item>Quiabo</item>
+        <item>Pimenta</item>
+        <item>Maxixe</item>
+        <item>Cará</item>
+        <item>Couve (ou Couve simples)</item>
+        <item>Feijão Vigna</item>
+        <item>Algaroba</item>
+        <item>FLORES</item>
+        <item>Crotalaria (Arbusto)</item>
+        <item>Cajarana</item>
+        <item>Bucha</item>
+        <item>Vagem</item>
+        <item>Cogumelo</item>
+        <item>Cebolinha</item>
+        <item>Salsa</item>
+        <item>Hortaliças</item>
+        <item>Coco Seco</item>
+        <item>Milho-verde</item>
+        <item>Giló</item>
+        <item>Fumo</item>
+        <item>Pomar</item>
+        <item>Eucalipito</item>
+    </string-array>
+
+    <string-array name="anexo10">
+        <item>Poço escavado(cacimba/cisterna)</item>
+        <item>Fonte natural</item>
+        <item>Lago</item>
+        <item>Lagoa</item>
+        <item>Nascente</item>
+        <item>Piezômetro</item>
+        <item>Poço amazonas</item>
+        <item>Poço coletor</item>
+        <item>Poço ponteira</item>
+        <item>Poço tubular</item>
+        <item>Poço de monitoramento</item>
+    </string-array>
+
+    <string-array name="anexo11">
+        <item>Parcial</item>
+        <item>Total</item>
+    </string-array>
+
+    <string-array name="anexo12">
+        <item>Livre</item>
+        <item>Confinado</item>
+        <item>Semi-livre</item>
+        <item>Semi-confinado</item>
+    </string-array>
+
+    <string-array name="anexo13">
+        <item>Rebaixamento </item>
+        <item>Recarga </item>
+        <item>Escalonado </item>
+        <item>Recuperação residual</item>
+        <item>Recuperação</item>
+        <item>Continuo </item>
+    </string-array>
+
+    <string-array name="anexo14">
+        <item>Aron-scott</item>
+        <item>Boulton</item>
+        <item>Bruggeman</item>
+        <item>Chow</item>
+        <item>Cooper-jacob</item>
+        <item>De glee</item>
+        <item>Dietz</item>
+        <item>Ernst-thiem walton</item>
+        <item>Gosselin</item>
+        <item>Hantush</item>
+        <item>Hantush-jacob</item>
+        <item>Hantush-theis</item>
+        <item>Hantush-thomas</item>
+        <item>Huisman</item>
+        <item>Huisman-kemperman</item>
+        <item>Hurr</item>
+        <item>Jacob</item>
+        <item>Jacob-lohman</item>
+        <item>Logan</item>
+        <item>Papadopulos-cooper</item>
+        <item>Ponto de culminacao</item>
+        <item>Recuperacao de theis</item>
+        <item>Stallman</item>
+        <item>Stenberg</item>
+        <item>Theis</item>
+        <item>Thiem-dupuit</item>
+        <item>Thien</item>
+        <item>Zangar</item>
+    </string-array>
 
 </resources>

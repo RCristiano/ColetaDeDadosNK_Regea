@@ -6,11 +6,10 @@
 
     <group
         android:id="@+id/group_Cad"
-        android:checkableBehavior="single"
-        android:visible="false">
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_user"
-            android:icon="@android:drawable/btn_star"
+            android:icon="@android:drawable/ic_menu_my_calendar"
             android:title="Usuário" />
         <item
             android:id="@+id/nav_prop"
@@ -35,7 +34,7 @@
                 android:title="Novo Cadastro" />
             <item
                 android:id="@+id/nav_List"
-                android:icon="?android:attr/actionModePasteDrawable"
+                android:icon="?attr/actionModeCopyDrawable"
                 android:title="Listar Cadastros" />
             <item
                 android:id="@+id/nav_send"

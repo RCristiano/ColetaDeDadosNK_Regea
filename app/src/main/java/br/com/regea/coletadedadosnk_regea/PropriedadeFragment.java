@@ -13,6 +13,8 @@ import android.view.ViewGroup;
  */
 public class PropriedadeFragment extends Fragment {
 
+    private static final String TAB_NAME = "TAB_PROPRIEDADE";
+    private static boolean hasTable = false;
 
     public PropriedadeFragment() {
         // Required empty public constructor
@@ -23,7 +25,14 @@ public class PropriedadeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_propriedade, container, false);
+        View view = (View) inflater.inflate(R.layout.fragment_propriedade, container, false);
+
+        getActivity().setTitle(R.string.title_propriedade);
+
+        if (!hasTable)
+            hasTable = ((Cadastro) getActivity()).createTableFromView(TAB_NAME, view);
+
+        return view;
     }
 
 }
