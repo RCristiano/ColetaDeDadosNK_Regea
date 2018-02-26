@@ -52,13 +52,13 @@ public class PontoFragment extends Fragment {
         getActivity().setTitle(R.string.title_ponto);
 
         if (!hasTable)
-            hasTable = ((Cadastro) getActivity()).createTableFromView(TAB_NAME, view);
+            hasTable = ((MainActivity) getActivity()).createTableFromView(TAB_NAME, view);
 
         Button btn_gps = (Button) view.findViewById(R.id.btn_gps);
         btn_gps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Cadastro) getActivity()).requestLocation(view);
+                ((MainActivity) getActivity()).requestLocation(view);
             }
         });
 

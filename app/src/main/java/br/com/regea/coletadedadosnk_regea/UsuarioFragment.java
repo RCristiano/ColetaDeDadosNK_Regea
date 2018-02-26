@@ -8,9 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-
-import java.util.ArrayList;
 
 
 /**
@@ -34,7 +31,7 @@ public class UsuarioFragment extends Fragment {
         getActivity().setTitle(R.string.title_usuario);
 
         if (!hasTable)
-            hasTable = ((Cadastro) getActivity()).createTableFromView(TAB_NAME, view);
+            hasTable = ((MainActivity) getActivity()).createTableFromView(TAB_NAME, view);
 
         Button btn_Next = (Button) view.findViewById(R.id.btn_Next);
         btn_Next.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +45,7 @@ public class UsuarioFragment extends Fragment {
     }
 
     public void saveData() {
-        Log.e("TAG", "=> " + getArguments());
+        Log.e("ARGS", "=> " + getArguments());
 
         //EditText txtUsuario = (EditText) getActivity().findViewById(R.id.EMP_NM_USUARIO);
 

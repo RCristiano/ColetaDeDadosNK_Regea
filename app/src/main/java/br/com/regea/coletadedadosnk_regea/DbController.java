@@ -105,7 +105,7 @@ public class DbController implements DbContract {
             csvWrite.close();
             curCSV.close();
         } catch (Exception sqlEx) {
-            Log.e("MainActivity", sqlEx.getMessage(), sqlEx);
+            Log.e("LauncherActivity", sqlEx.getMessage(), sqlEx);
         }
     }*/
 

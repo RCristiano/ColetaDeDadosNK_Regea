@@ -8,6 +8,8 @@
     <string name="title_usuario">Usuário</string>
     <string name="title_propriedade">Propriedade</string>
     <string name="title_ponto">Ponto</string>
+    <string name="logout">Logout</string>
+    <string name="quit">Sair</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

@@ -19,11 +19,13 @@
 
         <EditText
             android:id="@+id/EMP_NM_USUARIO"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Nome Usuário"
             android:inputType="textPersonName"
+            android:tag="requerid"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 
@@ -137,6 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:labelFor="@+id/APA_MUNI_CORRESPONDENCIA"
                 android:text="Município:" />
 
             <Spinner

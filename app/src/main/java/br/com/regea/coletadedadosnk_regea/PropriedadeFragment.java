@@ -30,7 +30,7 @@ public class PropriedadeFragment extends Fragment {
         getActivity().setTitle(R.string.title_propriedade);
 
         if (!hasTable)
-            hasTable = ((Cadastro) getActivity()).createTableFromView(TAB_NAME, view);
+            hasTable = ((MainActivity) getActivity()).createTableFromView(TAB_NAME, view);
 
         return view;
     }
