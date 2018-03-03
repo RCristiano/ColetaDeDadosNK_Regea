@@ -6,11 +6,11 @@ import android.provider.BaseColumns;
  * Created by Rodrigo on 18/02/2018.
  */
 
-public interface DbContract {
+public interface DbContract extends BaseColumns {
 
     String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + DbEntry.TB_USUARIO + " (" +
-                    DbEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     DbEntry.USUARIO_NAME + " TEXT NOT NULL);";
     String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + DbEntry.TB_USUARIO;

@@ -39,7 +39,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final int REQUEST_GPS_PERMISSION = 332;
+    public static final int REQUEST_GPS_PERMISSION = 332;
     public static final UsuarioFragment usuarioFragment = new UsuarioFragment();
     public static final PropriedadeFragment propriedadeFragment = new PropriedadeFragment();
     public static final PontoFragment pontoFragment = new PontoFragment();
@@ -50,6 +50,30 @@ public class MainActivity extends AppCompatActivity
     private LocationManager locationManager;
     private Location bestLocation = null;
     private SharedPreferences sharedpreferences;
+
+    public static ArrayList<View> getAllChildren(View v) {
+
+        if (v instanceof Spinner || !(v instanceof ViewGroup)) {
+            ArrayList<View> viewArrayList = new ArrayList<View>();
+            viewArrayList.add(v);
+            return viewArrayList;
+        }
+
+        ArrayList<View> result = new ArrayList<View>();
+
+        ViewGroup vg = (ViewGroup) v;
+        for (int i = 0; i < vg.getChildCount(); i++) {
+
+            View child = vg.getChildAt(i);
+
+            ArrayList<View> viewArrayList = new ArrayList<View>();
+            viewArrayList.add(v);
+            viewArrayList.addAll(getAllChildren(child));
+
+            result.addAll(viewArrayList);
+        }
+        return result;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -336,30 +360,6 @@ public class MainActivity extends AppCompatActivity
             alertDialog.setMessage(String.format("Precisão: %s metros", bestLocation.getAccuracy()));
             alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setVisibility(View.VISIBLE);
         }
-    }
-
-    public ArrayList<View> getAllChildren(View v) {
-
-        if (v instanceof Spinner || !(v instanceof ViewGroup)) {
-            ArrayList<View> viewArrayList = new ArrayList<View>();
-            viewArrayList.add(v);
-            return viewArrayList;
-        }
-
-        ArrayList<View> result = new ArrayList<View>();
-
-        ViewGroup vg = (ViewGroup) v;
-        for (int i = 0; i < vg.getChildCount(); i++) {
-
-            View child = vg.getChildAt(i);
-
-            ArrayList<View> viewArrayList = new ArrayList<View>();
-            viewArrayList.add(v);
-            viewArrayList.addAll(getAllChildren(child));
-
-            result.addAll(viewArrayList);
-        }
-        return result;
     }
 
     public boolean createTableFromView(String TAB_NAME, View view) {

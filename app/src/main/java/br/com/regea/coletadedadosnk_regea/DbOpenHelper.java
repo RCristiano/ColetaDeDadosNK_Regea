@@ -17,7 +17,7 @@ public class DbOpenHelper extends SQLiteOpenHelper implements DbContract {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
 
         // Para apagar o db
-        //context.deleteDatabase(DATABASE_NAME);
+        context.deleteDatabase(DATABASE_NAME);
     }
 
     @Override
